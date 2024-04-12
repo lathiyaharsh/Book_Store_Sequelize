@@ -5,10 +5,10 @@ const { uploadImgPath } = require("../models/user");
 const { login, profile, signup, remove } = require("../controller/user");
 
 routes.post("/login", login);
+routes.post("/signup", uploadImgPath, signup);
 
 routes.use(jwtauth);
 routes.get("/profile", profile);
 routes.delete("/remove", remove);
-routes.post("/signup", uploadImgPath, signup);
 
 module.exports = routes;
