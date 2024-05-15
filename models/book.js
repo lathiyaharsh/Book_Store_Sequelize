@@ -21,11 +21,11 @@ const book = con.define("book", {
       len: [3, 200],
     },
   },
-  no_of_page: {
+  noOfPage: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: {
-      min: 10,
+      min: 0,
     },
   },
   author: {
@@ -46,7 +46,7 @@ const book = con.define("book", {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  released_year: {
+  releasedYear: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: {

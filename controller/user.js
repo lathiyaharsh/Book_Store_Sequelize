@@ -28,6 +28,8 @@ const deletefile = async (file) => {
 
 module.exports.signup = async (req, res) => {
   try {
+    console.log(req.body);
+    console.log(req.file);
     if (!req.body)
       return res.status(400).json({ message: userMassage.error.fillDetails });
 
@@ -87,6 +89,7 @@ module.exports.signup = async (req, res) => {
 
 module.exports.login = async (req, res) => {
   try {
+    
     const { email, password } = req.body;
     const findUser = await user.findOne({ where: { email } });
 
