@@ -100,7 +100,7 @@ module.exports.list = async (req, res) => {
       orderCondition = ["createdAt", "ASC"];
     }
 
-    if (authorName && authorName.trim()) {
+    if ( authorName && authorName.trim() && authorName != 'undefined') {
       whereCondition.name = {
         [Op.like]: `%${search}%`,
       };
@@ -108,7 +108,7 @@ module.exports.list = async (req, res) => {
         [Op.like]: `%${authorName}%`,
       };
     }
-    if (search && search.trim()) {
+    if (search && search.trim() && search != 'undefined') {
       whereCondition.name = {
         [Op.like]: `%${search}%`,
       };
@@ -209,7 +209,7 @@ module.exports.list = async (req, res) => {
 
 module.exports.findOne = async (req, res) => {
   try {
-    const { bookName, author } = req.query;
+    const { bookName, author ,bookAuthor } = req.query;
     const { id } = req.params;
     console.log(id);
     let whereCondition = {};
